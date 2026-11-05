@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" role="img" aria-labelledby="t">
+  <title id="t">PGC Nigeria — The People's Governance Compact</title>
+  <g>
+    <circle cx="60" cy="60" r="54" fill="#102D46"/>
+    <circle cx="60" cy="60" r="46" fill="none" stroke="#D4AF37" stroke-width="2.5"/>
+    <g fill="#FFFFFF">
+      <circle cx="60" cy="20" r="5"/><circle cx="94.6" cy="40" r="5"/><circle cx="94.6" cy="80" r="5"/>
+      <circle cx="60" cy="100" r="5"/><circle cx="25.4" cy="80" r="5"/><circle cx="25.4" cy="40" r="5"/>
+    </g>
+    <path d="M60 34 L82 42 V60 C82 74 72 84 60 88 C48 84 38 74 38 60 V42 Z" fill="#008751"/>
+    <path d="M60 34 L60 88 C48 84 38 74 38 60 V42 Z" fill="#00995C"/>
+    <path d="M49 61 L57 69 L72 52" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="134" y="58" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="40" font-weight="800" fill="#102D46" letter-spacing="1">PGC <tspan fill="#008751">NIGERIA</tspan></text>
+  <text x="136" y="86" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="14.5" font-weight="600" fill="#202A35" letter-spacing="2.2">THE PEOPLE'S GOVERNANCE COMPACT</text>
+  <rect x="136" y="96" width="60" height="3" fill="#D4AF37"/>
+</svg>

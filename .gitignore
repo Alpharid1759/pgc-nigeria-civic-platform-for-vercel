@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Secrets and environment-specific configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Vercel
+.vercel/
+
+# Logs and tool-local files
+*.log
+.claude/settings.local.json
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
