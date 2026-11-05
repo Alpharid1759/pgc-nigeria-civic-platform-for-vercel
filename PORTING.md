@@ -22,24 +22,34 @@ This repository is a Next.js 15 (App Router, TypeScript) port of the PGC Nigeria
 Figures that need records (members, projects, scorecards) show **Unavailable** rather than zero, as in the
 WordPress theme when a figure cannot be read.
 
-## Not yet ported (need a database)
+## Ported with Postgres (`DATABASE_URL`)
 
-These modules store records in MySQL custom tables or custom post types. They need a hosted database
-(for example Postgres on Neon or Supabase) and authentication before they can run on Vercel.
+| Module | WordPress source | Next.js |
+|---|---|---|
+| Membership application (honeypot, time-trap, rate limit, consents, application/membership numbers) | `class-pgc-membership.php` | `src/app/membership/**`, `src/lib/membership.ts` |
+| Development register | `class-pgc-projects.php` | `src/app/projects/**`, `src/lib/projects.ts`, `/api/projects` |
+| Scorecards (weights, "Not Yet Rated" under 60% evidence, trend) | `class-pgc-scorecards.php` | `src/app/scorecards/**`, `src/lib/scorecards.ts`, `/api/scorecards` |
+| National dashboard | `class-pgc-analytics.php` | `src/app/dashboard/page.tsx`, `src/lib/stats.ts` |
+| Schema | MySQL custom tables | `db/migrations/001_init.sql` |
+
+Demo rows (`is_demo`) are never counted or listed unless `PGC_SHOW_DEMO=1`. Jurisdictions stay in the bundled
+JSON; database rows reference them by slug. Approve or reject applications with `npm run review`.
+
+## Not yet ported
 
 | Module | WordPress source |
 |---|---|
-| Membership, roles and member dashboard | `class-pgc-membership.php`, `class-pgc-roles.php` |
-| Projects, funding ledger, verification | `class-pgc-projects.php` |
-| Scorecards, officials, right of reply | `class-pgc-scorecards.php`, `class-pgc-officials.php` |
+| Sign-in, roles, admin screens, member dashboard | `class-pgc-roles.php` |
+| Email notifications (no mail provider is wired up) | `class-pgc-notify.php` |
+| Funding ledger and project verification workflow | `class-pgc-projects.php` |
+| Officials management and right-of-reply workflow | `class-pgc-officials.php` |
 | Citizen reports | `class-pgc-citizen-reports.php` |
 | Chapters, elections, finance, ethics | `class-pgc-chapters.php`, `class-pgc-elections.php`, `class-pgc-finance.php`, `class-pgc-ethics.php` |
-| Petitions, consultations, meetings, notifications | `class-pgc-participation.php`, `class-pgc-notify.php` |
-| National dashboard and CSV exports | `class-pgc-analytics.php` |
+| Petitions, consultations, meetings | `class-pgc-participation.php` |
+| CSV exports | `class-pgc-analytics.php` |
 | Launch plan, pilots, partnerships | `class-pgc-launch.php` |
 
-The pages for Development Register, Scorecards, Dashboard and Membership exist and say plainly that they are
-not yet available, so no navigation link is dead.
+Until sign-in exists, records are added to the database directly (SQL or scripts).
 
 ## Not carried over
 

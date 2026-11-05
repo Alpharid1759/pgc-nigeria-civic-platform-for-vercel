@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import JurisdictionRecords from "@/components/JurisdictionRecords";
 import { LEVEL_LABEL, children, findChild, findTop, topLevel } from "@/lib/directory";
+
+export const revalidate = 300;
 
 type Params = { state: string; lga: string };
 
@@ -63,10 +66,7 @@ export default async function LgaPage({ params }: { params: Promise<Params> }) {
         </div>
       </section>
 
-      <section className="section" style={{ paddingBottom: 0 }}>
-        <h2>Development project register</h2>
-        <div className="empty-state">No projects recorded for this jurisdiction yet.</div>
-      </section>
+      <JurisdictionRecords stateSlug={parent.slug} lgaSlug={j.slug} />
 
       <section className="section">
         <h2>Governance scorecards</h2>

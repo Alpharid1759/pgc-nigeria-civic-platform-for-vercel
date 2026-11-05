@@ -2,7 +2,7 @@
   "name": "pgc-nigeria-for-vercel",
   "version": "0.1.0",
   "private": true,
-  "description": "PGC Nigeria (The People's Governance Compact) — Next.js port of the WordPress platform, ready for Vercel.",
+  "description": "PGC Nigeria (The People's Governance Compact) \u2014 Next.js port of the WordPress platform, ready for Vercel.",
   "engines": {
     "node": ">=20"
   },
@@ -12,17 +12,24 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "db:seed": "tsx scripts/seed.ts",
+    "review": "tsx scripts/review.ts"
   },
   "dependencies": {
     "next": "15.5.29",
+    "pg": "8.23.1",
     "react": "19.1.1",
     "react-dom": "19.1.1"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.5.15",
     "@types/node": "22.10.2",
+    "@types/pg": "8.23.1",
     "@types/react": "19.1.12",
     "@types/react-dom": "19.1.9",
+    "tsx": "4.23.15",
     "typescript": "5.7.2",
     "vitest": "2.1.8"
   }

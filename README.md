@@ -22,8 +22,18 @@ npm run build
 
 1. Push this repo to GitHub.
 2. Go to vercel.com/new and import the repo. Vercel detects Next.js; leave the build settings as they are.
-3. Add the environment variables from `.env.example` (all optional; defaults are built in).
+3. Create a Postgres database (Neon, Supabase or Vercel Postgres) and add `DATABASE_URL` and `PGC_SECRET`
+   (16+ random characters) in Vercel's environment variables. Without them the site still runs, and the
+   database-backed pages say they are unavailable.
 4. Deploy.
+5. Create the tables once, from your PC (PowerShell):
+
+```powershell
+$env:DATABASE_URL = "postgres://..."
+npm run db:migrate
+```
+
+Other commands: `npm run db:seed` (one flagged demo project), `npm run review -- list|approve <id>|reject <id>`.
 
 ## Environment variables
 
@@ -33,5 +43,9 @@ npm run build
 | `PGC_CONTACT_PHONE` | Phone shown in the footer and contact page |
 | `PGC_CONTACT_WHATSAPP_URL` | WhatsApp link |
 | `PGC_CONTACT_EMAIL` | Contact email |
+| `DATABASE_URL` | Postgres connection string |
+| `PGC_SECRET` | Signs the form token and hashes IPs (16+ chars) |
+| `PGC_SHOW_DEMO` | `1` shows demonstration rows (leave unset in production) |
+| `PGC_DB_POOL_MAX` | Max DB connections per instance (default 5) |
 
 Never commit `.env` files.

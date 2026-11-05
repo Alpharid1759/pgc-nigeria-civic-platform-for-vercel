@@ -116,6 +116,16 @@ export function findChild(parentSlug: string, slug: string): Jurisdiction | unde
   return children(parentSlug).find((j) => j.slug === slug);
 }
 
+export function stateName(slug: string | null | undefined): string {
+  return slug ? (findTop(slug)?.name ?? "") : "";
+}
+
+/** "Makurdi, Benue" style label, or the country when no area is set. */
+export function areaLabel(state?: string | null, lga?: string | null): string {
+  const parts = [lga && state ? (findChild(state, lga)?.name ?? "") : "", stateName(state)].filter(Boolean);
+  return parts.length > 0 ? parts.join(", ") : "Federal Republic of Nigeria";
+}
+
 export interface DirectoryCounts {
   states: number;
   fct: number;

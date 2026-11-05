@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import JurisdictionRecords from "@/components/JurisdictionRecords";
 import FilterList from "@/components/FilterList";
 import { CHILD_LABEL, LEVEL_LABEL, children, findTop, topLevel } from "@/lib/directory";
+
+export const revalidate = 300;
 
 type Params = { state: string };
 
@@ -65,17 +68,7 @@ export default async function StatePage({ params }: { params: Promise<Params> })
         <FilterList items={kids.map((k) => ({ name: k.name, href: k.path }))} />
       </section>
 
-      <section className="section" style={{ paddingBottom: 0 }}>
-        <h2>Development project register</h2>
-        <div className="empty-state">No projects recorded for this jurisdiction yet.</div>
-      </section>
-
-      <section className="section">
-        <h2>Governance scorecards</h2>
-        <div className="empty-state">
-          <strong>Not yet rated.</strong> Scorecards are published only when sufficient verified evidence exists.
-        </div>
-      </section>
+      <JurisdictionRecords stateSlug={j.slug} />
     </div>
   );
 }

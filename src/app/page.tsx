@@ -1,12 +1,19 @@
 import Link from "next/link";
+import ProjectCard from "@/components/ProjectCard";
+import ScorecardCard from "@/components/ScorecardCard";
 import Stat from "@/components/Stat";
+import { safely, showDemo } from "@/lib/db";
+import { recentProjects } from "@/lib/projects";
+import { listScorecards } from "@/lib/scorecards";
 import { STAGES } from "@/lib/site";
 import { getStats } from "@/lib/stats";
 
-export const dynamic = "force-static";
+export const revalidate = 300;
 
-export default function HomePage() {
-  const stats = getStats();
+export default async function HomePage() {
+  const stats = await getStats();
+  const cards = (await safely((db) => listScorecards(db, { limit: 50 }, showDemo()), [])).filter((c) => c.overall !== null).slice(0, 3);
+  const recent = await safely((db) => recentProjects(db, 3, showDemo()), []);
   const dir = stats.directory;
 
   return (
@@ -106,19 +113,35 @@ export default function HomePage() {
       <section className="section section--grey">
         <div className="wrap">
           <h2>Featured governance scorecards</h2>
-          <div className="empty-state">
-            <strong>No scorecards published yet.</strong> Scorecards appear only after evidence review.{" "}
-            <Link href="/methodology">How we assess</Link>.
-          </div>
+          {cards.length > 0 ? (
+            <div className="grid">
+              {cards.map((c) => (
+                <ScorecardCard key={c.id} card={c} />
+              ))}
+            </div>
+          ) : (
+            <div className="empty-state">
+              <strong>No scorecards published yet.</strong> Scorecards appear only after evidence review.{" "}
+              <Link href="/methodology">How we assess</Link>.
+            </div>
+          )}
         </div>
       </section>
 
       <section className="section">
         <div className="wrap">
           <h2>Recently updated projects</h2>
-          <div className="empty-state">
-            No project records have been published yet. <Link href="/projects">Development register</Link>.
-          </div>
+          {recent.length > 0 ? (
+            <div className="grid">
+              {recent.map((p) => (
+                <ProjectCard key={p.id} project={p} />
+              ))}
+            </div>
+          ) : (
+            <div className="empty-state">
+              No project records have been published yet. <Link href="/projects">Development register</Link>.
+            </div>
+          )}
         </div>
       </section>
 
