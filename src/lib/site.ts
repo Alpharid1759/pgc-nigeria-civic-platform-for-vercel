@@ -1,7 +1,7 @@
 export const SITE_NAME = "PGC Nigeria";
 export const SITE_TAGLINE = "Democracy Beyond the Ballot";
 export const SITE_DESCRIPTION =
-  "The People's Governance Compact: a proposed, non-partisan, citizen-led institution for continuous participatory accountability in Nigeria.";
+  "The People's Governance Compact: a proposed political party founded on Governance by Objective: elected representatives are bound to deliver predetermined development projects for the jurisdictions they represent.";
 
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
 
@@ -15,7 +15,9 @@ export const CONTACT = {
 export const NAV: { label: string; href: string }[] = [
   { label: "Home", href: "/" },
   { label: "How It Works", href: "/#how-it-works" },
-  { label: "Institutional Governance", href: "/constitution" },
+  { label: "The Party", href: "/party" },
+  { label: "Constitution", href: "/constitution" },
+  { label: "Candidates", href: "/candidates" },
   { label: "Development Register", href: "/projects" },
   { label: "States & FCT", href: "/states" },
   { label: "Scorecards", href: "/scorecards" },

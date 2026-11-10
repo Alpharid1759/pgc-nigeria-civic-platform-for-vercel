@@ -92,6 +92,8 @@ export default async function DashboardPage({ searchParams }: { searchParams: Se
         <Stat value={stats.projects.total} label="Projects on register" />
         <Stat value={stats.projects.verified} label="Verified projects" />
         <Stat value={stats.scorecards_published} label="Published scorecards" />
+        <Stat value={stats.candidates.total} label="Candidates with signed Mandates" />
+        <Stat value={stats.candidates.mandate_projects} label="Mandate projects tracked" />
       </div>
 
       {!dash ? (

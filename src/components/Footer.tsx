@@ -15,9 +15,9 @@ export default function Footer() {
               Democracy Beyond the Ballot.
             </p>
             <p>
-              A proposed, non-partisan, citizen-led institution. Not a political party, campaign organisation or
-              government agency. Not yet incorporated: the proposed legal pathway is registration as Incorporated
-              Trustees under CAMA 2020, subject to CAC approval.
+              A proposed political party founded on Governance by Objective: every candidate is bound to deliver
+              predetermined development projects for the jurisdiction they represent. Not yet registered with INEC; it
+              cannot sponsor candidates until it is.
             </p>
           </div>
           <div>
@@ -48,6 +48,9 @@ export default function Footer() {
                 <Link href="/scorecards">Governance Scorecards</Link>
               </li>
               <li>
+                <Link href="/candidates">Candidates and Mandates</Link>
+              </li>
+              <li>
                 <Link href="/membership">Become a Member</Link>
               </li>
             </ul>
@@ -56,7 +59,13 @@ export default function Footer() {
             <h3>Institutional</h3>
             <ul>
               <li>
-                <Link href="/constitution">Founding Constitution (Proposed Draft)</Link>
+                <Link href="/constitution">Party Constitution (Proposed Draft)</Link>
+              </li>
+              <li>
+                <Link href="/party/rules">Party Rules and Regulations</Link>
+              </li>
+              <li>
+                <Link href="/party">Governance by Objective</Link>
               </li>
               <li>
                 <Link href="/methodology">Scorecard Methodology</Link>

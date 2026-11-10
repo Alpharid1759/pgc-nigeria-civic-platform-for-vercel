@@ -7,9 +7,9 @@ import PrintButton from "@/components/PrintButton";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "Founding Constitution (Proposed Draft)",
+  title: "Party Constitution (Proposed Draft)",
   description:
-    "The proposed founding constitution of PGC Nigeria. A draft for consultation; it has not been adopted.",
+    "The proposed constitution of PGC Nigeria, a political party founded on Governance by Objective. A draft for consultation; it has not been adopted.",
 };
 
 function loadConstitution(): string {
@@ -21,11 +21,11 @@ export default function ConstitutionPage() {
 
   return (
     <div className="wrap">
-      <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Founding Constitution" }]} />
-      <h1>Founding Constitution</h1>
+      <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Party Constitution" }]} />
+      <h1>Party Constitution</h1>
       <div className="doc-banner">
         <span className="badge badge--pending">PROPOSED DRAFT</span>
-        <span>Version 0.1</span>
+        <span>Version 0.2</span>
         <span>Not adopted</span>
       </div>
       <p>

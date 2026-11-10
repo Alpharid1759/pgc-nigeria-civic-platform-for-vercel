@@ -25,15 +25,16 @@ export default async function HomePage() {
             Your vote elects them. <span>Your voice holds them accountable.</span>
           </h1>
           <p>
-            Democracy does not end at the polling unit. Join a nationwide movement of citizens committed to defining
-            development priorities, monitoring public projects and demanding accountability from elected officials.
+            PGC Nigeria is a proposed political party built on Governance by Objective: every candidate commits, in public,
+            to deliver predetermined development projects for the people they would represent, and every project is
+            tracked until it is independently verified.
           </p>
           <div className="actions">
             <Link className="pgc-btn pgc-btn--gold" href="/membership">
-              Join the Movement
+              Join the Party
             </Link>
-            <Link className="pgc-btn pgc-btn--light" href="/scorecards">
-              Explore Governance Scorecards
+            <Link className="pgc-btn pgc-btn--light" href="/candidates">
+              See Candidates and Mandates
             </Link>
             <Link className="pgc-btn pgc-btn--light" href="/states">
               Explore Your Local Government
@@ -46,10 +47,10 @@ export default async function HomePage() {
         <div className="wrap">
           <h2>Why democracy must go beyond elections</h2>
           <p className="section__lead">
-            PGC Nigeria is a proposed non-partisan, citizen-led institution built on{" "}
-            <strong>Continuous Participatory Accountability</strong>: citizens identify community needs, agree realistic
-            priorities, follow public commitments and budgets, and evaluate elected officials against their lawful
-            responsibilities, every quarter of every tenure.
+            PGC Nigeria is a proposed political party built on <strong>Governance by Objective</strong>: citizens identify
+            community needs and agree realistic priorities, candidates adopt those priorities as a signed Governance
+            Mandate, and elected representatives are measured against it, and sanctioned by the Party if they fail to
+            deliver without good cause, every quarter of every tenure.
           </p>
           <div className="grid">
             <div className="card reveal">
@@ -97,6 +98,8 @@ export default async function HomePage() {
             <Stat value={stats.projects.total} label="Projects on register" />
             <Stat value={stats.projects.verified} label="Independently verified projects" />
             <Stat value={stats.scorecards_published} label="Published scorecards" />
+            <Stat value={stats.candidates.total} label="Candidates with signed Mandates" />
+            <Stat value={stats.candidates.mandate_projects} label="Mandate projects tracked" />
           </div>
           <p className="data-note">
             Directory figures are counted from the bundled directory data. Figures marked Unavailable need the
@@ -170,16 +173,16 @@ export default async function HomePage() {
           </p>
           <h2>You voted. They were elected. Now, let&apos;s work together to ensure they deliver.</h2>
           <p>
-            The People&apos;s Governance Compact is not a political party. It is not a campaign organisation. It is not
-            a government agency. It is a citizen-led institution dedicated to ensuring that democratic participation
-            continues beyond elections.
+            The People&apos;s Governance Compact is a proposed political party. It is not yet registered with INEC and it is
+            not a government agency. Its single rule is that whoever carries its name into office must deliver the
+            projects they promised, and show the evidence.
           </p>
           <p>
             <Link className="pgc-btn pgc-btn--gold" href="/membership">
               Become a Founding Member
             </Link>{" "}
             <Link className="pgc-btn pgc-btn--light" href="/constitution">
-              Read the proposed constitution
+              Read the proposed party constitution
             </Link>
           </p>
         </div>

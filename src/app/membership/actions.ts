@@ -42,7 +42,7 @@ const FLAG_FIELDS = [
   "volunteer_interest",
   "decl_voluntary",
   "decl_democratic",
-  "decl_nonpartisan",
+  "decl_ideology",
   "decl_constitution",
   "consent_data",
   "consent_newsletter",

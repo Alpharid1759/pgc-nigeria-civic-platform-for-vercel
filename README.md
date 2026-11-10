@@ -33,6 +33,8 @@ $env:DATABASE_URL = "postgres://..."
 npm run db:migrate
 ```
 
+Screening and the Mandate Committee: `npm run candidates -- list|status <id> <status>|add <id> <project-no> <date>|remove <item-id> <reason>`.
+
 Other commands: `npm run db:seed` (one flagged demo project), `npm run review -- list|approve <id>|reject <id>`.
 
 ## Environment variables

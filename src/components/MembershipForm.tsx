@@ -238,14 +238,14 @@ export default function MembershipForm({ states, categories, timeTrap, defaultCa
           </p>
           <p>
             <label>
-              <input type="checkbox" name="decl_nonpartisan" value="1" required defaultChecked={flag("decl_nonpartisan")} /> I support PGC
-              Nigeria&apos;s non-partisanship.
+              <input type="checkbox" name="decl_ideology" value="1" required defaultChecked={flag("decl_ideology")} /> I accept the
+              Party&apos;s ideology of Governance by Objective, and I do not belong to another political party.
             </label>
           </p>
           <p>
             <label>
               <input type="checkbox" name="decl_constitution" value="1" required defaultChecked={flag("decl_constitution")} /> I agree to the
-              proposed constitution and code of conduct.
+              proposed party constitution and code of conduct.
             </label>
           </p>
           <p>

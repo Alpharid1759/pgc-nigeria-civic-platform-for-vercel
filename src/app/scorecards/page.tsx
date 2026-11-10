@@ -43,7 +43,7 @@ export default async function ScorecardsPage({ searchParams }: { searchParams: S
       <h1>Governance scorecards</h1>
       <p className="section__lead">
         Scorecards assess how elected officials perform against their lawful responsibilities. An office is shown as{" "}
-        <strong>Not Yet Rated</strong> until enough verified evidence exists. Scorecards are not political endorsements.
+        <strong>Not Yet Rated</strong> until enough verified evidence exists. Every office holder of every party, including the Party's own, is assessed by the same method. Scorecards are not endorsements.
       </p>
 
       <form className="filters" method="get" action="/scorecards">

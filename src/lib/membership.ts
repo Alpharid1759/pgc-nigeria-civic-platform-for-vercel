@@ -34,7 +34,7 @@ export interface ApplicationInput {
   comm_preference?: string;
   decl_voluntary?: boolean;
   decl_democratic?: boolean;
-  decl_nonpartisan?: boolean;
+  decl_ideology?: boolean;
   decl_constitution?: boolean;
   consent_data?: boolean;
   consent_newsletter?: boolean;
@@ -68,7 +68,7 @@ export async function createApplication(
   const required = [
     input.decl_voluntary,
     input.decl_democratic,
-    input.decl_nonpartisan,
+    input.decl_ideology,
     input.decl_constitution,
     input.consent_data,
   ];

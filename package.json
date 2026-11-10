@@ -15,7 +15,8 @@
     "test": "vitest run",
     "db:migrate": "tsx scripts/migrate.ts",
     "db:seed": "tsx scripts/seed.ts",
-    "review": "tsx scripts/review.ts"
+    "review": "tsx scripts/review.ts",
+    "candidates": "tsx scripts/candidates.ts"
   },
   "dependencies": {
     "next": "15.5.29",

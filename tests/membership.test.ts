@@ -23,7 +23,7 @@ const base = (over: Partial<ApplicationInput> = {}): ApplicationInput => ({
   category: "ordinary",
   decl_voluntary: true,
   decl_democratic: true,
-  decl_nonpartisan: true,
+  decl_ideology: true,
   decl_constitution: true,
   consent_data: true,
   ...over,
@@ -90,7 +90,7 @@ describe("createApplication", () => {
   });
 
   it("requires every declaration and the data consent", async () => {
-    for (const k of ["decl_voluntary", "decl_democratic", "decl_nonpartisan", "decl_constitution", "consent_data"] as const) {
+    for (const k of ["decl_voluntary", "decl_democratic", "decl_ideology", "decl_constitution", "consent_data"] as const) {
       const res = await createApplication(db, base({ email: `c-${k}@example.org`, [k]: false }), null);
       expect(res).toEqual({ ok: false, error: "consent" });
     }

@@ -54,3 +54,31 @@ export const OFFICES: Record<string, OfficeInfo> = {
 export function officeLabel(office: string): string {
   return OFFICES[office]?.label ?? "";
 }
+
+/** Proposed values from the draft Party Constitution (Articles 19 and 20). The General Assembly settles them. */
+export const MIN_MANDATE_ITEMS = 3;
+export const MIN_MEMBER_MONTHS = 6;
+
+export const CANDIDATE_STATUSES: Record<string, string> = {
+  aspirant: "Aspirant (not yet cleared)",
+  cleared: "Cleared by screening",
+  nominated: "Nominated candidate",
+  elected: "Elected",
+  serving: "Serving",
+  ended: "Tenure ended",
+  withdrawn: "Withdrawn",
+  disqualified: "Not cleared",
+};
+
+/** Statuses shown on the public candidate pages. */
+export const PUBLIC_CANDIDATE_STATUSES = ["cleared", "nominated", "elected", "serving", "ended"] as const;
+
+/** Mandate delivery state, derived from the Development Register status of the linked project. */
+export const DELIVERY_STATES: Record<string, string> = {
+  delivered: "Delivered (independently verified)",
+  awaiting_verification: "Completed, awaiting verification",
+  in_progress: "In progress",
+  planning: "Planned / funding stage",
+  delayed: "Delayed or suspended",
+  cancelled: "Cancelled",
+};

@@ -1,6 +1,7 @@
 import { counts, stateName, type DirectoryCounts } from "@/lib/directory";
 import { safely, showDemo, type Db } from "@/lib/db";
 import { PROJECT_STATUSES, SECTORS } from "@/lib/site";
+import { candidateCounts } from "@/lib/mandates";
 import { listScorecards } from "@/lib/scorecards";
 
 export interface PublicStats {
@@ -9,6 +10,7 @@ export interface PublicStats {
   members: { total: number | null };
   projects: { total: number | null; verified: number | null; by_status: Record<string, number> | null };
   scorecards_published: number | null;
+  candidates: { total: number | null; mandate_projects: number | null };
   note: string;
 }
 
@@ -37,6 +39,7 @@ function emptyStats(): PublicStats {
     members: { total: null },
     projects: { total: null, verified: null, by_status: null },
     scorecards_published: null,
+    candidates: { total: null, mandate_projects: null },
     note: NOTE_NO_DB,
   };
 }
@@ -56,6 +59,8 @@ export async function computeStats(db: Db, includeDemo = false): Promise<PublicS
     `SELECT count(*) AS n FROM scorecards WHERE status = 'published' ${includeDemo ? "" : "AND is_demo = false"}`,
   );
 
+  const cand = await candidateCounts(db, includeDemo);
+
   const statusCounts: Record<string, number> = Object.fromEntries(Object.keys(PROJECT_STATUSES).map((k) => [k, 0]));
   for (const r of byStatus.rows) statusCounts[r.status] = Number(r.n);
   const total = Object.values(statusCounts).reduce((a, b) => a + b, 0);
@@ -66,6 +71,7 @@ export async function computeStats(db: Db, includeDemo = false): Promise<PublicS
     members: { total: Number(members.rows[0]?.n ?? 0) },
     projects: { total, verified: statusCounts.verified ?? 0, by_status: statusCounts },
     scorecards_published: Number(cards.rows[0]?.n ?? 0),
+    candidates: { total: cand.candidates, mandate_projects: cand.mandateProjects },
     note: NOTE_DB,
   };
 }

@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Membership",
-  description: "Apply to become a member or volunteer of PGC Nigeria.",
+  description: "Join PGC Nigeria, the party of Governance by Objective.",
 };
 
 export default async function MembershipPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
@@ -24,7 +24,7 @@ export default async function MembershipPage({ searchParams }: { searchParams: P
       <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Membership" }]} />
       <h1>Membership</h1>
       <p className="section__lead">
-        Apply to join PGC Nigeria as a member or volunteer. Applications are reviewed by a membership officer. Your
+        Apply to join PGC Nigeria, the party of Governance by Objective. Only members in good standing can seek the Party&apos;s ticket, and every candidate is bound by a published Governance Mandate. Applications are reviewed by a membership officer. Your
         details are used only to manage your membership.
       </p>
       {ready && secret ? (
